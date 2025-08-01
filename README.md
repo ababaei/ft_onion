@@ -8,7 +8,7 @@ Our server is running in a docker container.
 To Initialize everything build the docker image
 
 ```bash
-docker build . 
+docker build -t torsite . 
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ docker build .
 Run the container image using
 
 ```bash
-docker run [container ID]
+docker run -p 4242:4242 torsite
 ```
 
 ## Test case
@@ -24,8 +24,8 @@ docker run [container ID]
 To find the generated .onion address
 
 ```bash
-#Go into the running container
-docker exec -it [container ID] /bin/bash
+#Acces the container through ssh (ababaei:123456)
+ssh ababaei@localhost -p 4242 
 
 #find the hostname file
 cat /var/lib/tor/hidden_service/hostname
